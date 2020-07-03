@@ -9,11 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    var viewModel: EmojiMemoryGame
+    
     var body: some View {
         // HStack allows to arrange its child views in a horizontal line
         HStack(spacing: 5) {
-            ForEach(0..<4) { index in
-                CardView(isFaceUp: true)
+            ForEach(viewModel.cards) { card in
+                CardView(card: card)
+                    .onTapGesture {
+                        self.viewModel.choose(card: card)
+                }
             }
         }
             // these modifiers are applied to all the views inside the stack
@@ -24,15 +29,15 @@ struct ContentView: View {
 }
 
 struct CardView: View {
-    var isFaceUp: Bool
+    var card: MemoryGame<String>.Card
     
     var body: some View {
         // ZStack allows to overlap its child views on top of each other
         ZStack() {
-            if isFaceUp {
+            if card.isFacedUp {
                 RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
                 RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
-                Text("👻")
+                Text(card.content)
             } else {
                 // Card background: the color is passed down from above
                 RoundedRectangle(cornerRadius: 10.0).fill()
@@ -43,6 +48,6 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: EmojiMemoryGame())
     }
 }
