@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  EmojiMemoryGameView.swift
 //  Memorize
 //
 //  Created by Amerigo Mancino on 03/07/2020.
@@ -8,8 +8,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var viewModel: EmojiMemoryGame
+struct EmojiMemoryGameView: View {
+    // ObservedObject will redraw the view any time viewModel
+    // changes meaning any time the send function gets called
+    @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
         // HStack allows to arrange its child views in a horizontal line
@@ -48,6 +50,6 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: EmojiMemoryGame())
+        EmojiMemoryGameView(viewModel: EmojiMemoryGame())
     }
 }
