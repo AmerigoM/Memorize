@@ -11,8 +11,10 @@
 import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
-    var cards: Array<Card>
-    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+    // set this variable is private but reading it is not
+    private(set) var cards: Array<Card>
+    
+    private var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get {
             return cards.indices.filter { (index) -> Bool in
                 return cards[index].isFacedUp

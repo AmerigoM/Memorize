@@ -42,7 +42,7 @@ struct CardView: View {
     }
     
     // helper function containing the view body
-    func body(for size: CGSize) -> some View {
+    private func body(for size: CGSize) -> some View {
         // ZStack allows to overlap its child views on top of each other
          ZStack() {
             if self.card.isFacedUp {
@@ -61,9 +61,9 @@ struct CardView: View {
     }
     
     // MARK: - Drawing constants
-    let cornerRadius: CGFloat = 10.0
-    let edgeLineWidth: CGFloat = 3
-    func fontSize(for size: CGSize) -> CGFloat {
+    private let cornerRadius: CGFloat = 10.0
+    private let edgeLineWidth: CGFloat = 3
+    private func fontSize(for size: CGSize) -> CGFloat {
         return min(size.width, size.height) * 0.75
     }
     
