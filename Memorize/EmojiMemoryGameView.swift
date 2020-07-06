@@ -50,8 +50,10 @@ struct CardView: View {
                 RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)
                 Text(self.card.content)
              } else {
-                 // Card background: the color is passed down from above
-                RoundedRectangle(cornerRadius: cornerRadius).fill()
+                if !card.isMatched {
+                    // Card background: the color is passed down from above
+                    RoundedRectangle(cornerRadius: cornerRadius).fill()
+                }
              }
          }
         // we set the content size as the minimum between the space offered
