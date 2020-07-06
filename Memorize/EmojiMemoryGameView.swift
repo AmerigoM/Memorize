@@ -14,18 +14,17 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
-        // HStack allows to arrange its child views in a horizontal line
-        HStack(spacing: 5) {
-            ForEach(viewModel.cards) { card in
+        // Custom view for a Grid of items
+        Grid(viewModel.cards) { card in
                 CardView(card: card)
                     .onTapGesture {
                         self.viewModel.choose(card: card)
                 }
+            .padding(5)
             }
-        }
-            // these modifiers are applied to all the views inside the stack
-            .padding()
-            .foregroundColor(Color.orange)
+                // these modifiers are applied to all the views inside the stack
+                .padding()
+                .foregroundColor(Color.orange)
     }
 }
 
