@@ -17,7 +17,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     private var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get {
             return cards.indices.filter { (index) -> Bool in
-                return cards[index].isFacedUp
+                return cards[index].isFaceUp
             }.only
         }
         
@@ -25,7 +25,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
             // we reset all the cards face down (in case some are up from a previous round) except the
             // new value that indexOfTheOneAndOnlyFaceUpCard just got because that's the new card for the new round
             for index in cards.indices {
-                cards[index].isFacedUp = (index == newValue)
+                cards[index].isFaceUp = (index == newValue)
             }
         }
     }
@@ -46,7 +46,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     mutating func choose(card: Card) {
         // if I choose a card AND (sequential and) the card is not already faced up AND it's not matched yet
-        if let chosenIndex = cards.firstIndex(matching: card), !cards[chosenIndex].isFacedUp, !cards[chosenIndex].isMatched {
+        if let chosenIndex = cards.firstIndex(matching: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
             // I have chosen a card that was faced down and not yet matched
             if let potentialIndex = indexOfTheOneAndOnlyFaceUpCard {
                 // I might have a match (potentialIndex is not nil so I have just turned up a second card)
@@ -57,7 +57,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                 }
                 
                 // flip the card
-                self.cards[chosenIndex].isFacedUp = true
+                self.cards[chosenIndex].isFaceUp = true
             } else {
                 // there are zero cards face up or more than two (indexOfTheOneAndOnlyOneFaceUpCard is nil)
                 
@@ -68,7 +68,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
 
     struct Card: Identifiable {
-        var isFacedUp: Bool = false
+        var isFaceUp: Bool = false
         var isMatched: Bool = false
         var content: CardContent
         

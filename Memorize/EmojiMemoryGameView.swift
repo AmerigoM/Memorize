@@ -42,30 +42,23 @@ struct CardView: View {
     }
     
     // helper function containing the view body
+    @ViewBuilder // this function is a list of views so it can return an empy view in the else case
     private func body(for size: CGSize) -> some View {
-        // ZStack allows to overlap its child views on top of each other
-         ZStack() {
-            if self.card.isFacedUp {
-                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
-                RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)
+        if card.isFaceUp || !card.isMatched {
+            // ZStack allows to overlap its child views on top of each other
+            ZStack() {
                 Pie(startAngle: Angle.degrees(0-90), endAngle: Angle.degrees(110-90), clockwise: true)
                     .padding(5)
                     .opacity(0.4)
                 Text(self.card.content)
-             } else {
-                if !card.isMatched {
-                    // Card background: the color is passed down from above
-                    RoundedRectangle(cornerRadius: cornerRadius).fill()
-                }
-             }
-         }
-        // we set the content size as the minimum between the space offered
-            .font(Font.system(size: fontSize(for: size)))
+                    // we set the content size as the minimum between the space offered
+                    .font(Font.system(size: fontSize(for: size)))
+            }
+            .cardify(isFacedUp: card.isFaceUp)
+        }
     }
     
     // MARK: - Drawing constants
-    private let cornerRadius: CGFloat = 10.0
-    private let edgeLineWidth: CGFloat = 3
     private func fontSize(for size: CGSize) -> CGFloat {
         return min(size.width, size.height) * 0.7
     }
