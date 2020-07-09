@@ -78,6 +78,7 @@ struct CardView: View {
                 }
                 .padding(5)
                 .opacity(0.4)
+                .transition(.identity)
 
                 Text(self.card.content)
                     // we set the content size as the minimum between the space offered

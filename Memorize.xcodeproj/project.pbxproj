@@ -53,6 +53,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		162A504A24B714A00090CDA0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				16640DCD24AF37A500244686 /* EmojiMemoryGameView.swift */,
+				167EA9A524B2FF13004CE4E7 /* Grid.swift */,
+				167EA9A724B30908004CE4E7 /* GridLayout.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		162A504B24B714C40090CDA0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1645CDF324AF67E1001B1185 /* EmojiMemoryGame.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		162A504C24B714CC0090CDA0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1645CDF124AF65F1001B1185 /* MemoryGame.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		162A504D24B715070090CDA0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				167EA9AB24B33146004CE4E7 /* Array+Only.swift */,
+				167EA9A924B30EE7004CE4E7 /* Array+Identifiable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		162A504E24B715490090CDA0 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				16622F3D24B463520093CA92 /* Cardify.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		162A504F24B7155D0090CDA0 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				16622F3B24B4548E0093CA92 /* Pie.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
 		16640DBD24AF37A500244686 = {
 			isa = PBXGroup;
 			children = (
@@ -72,17 +123,14 @@
 		16640DC824AF37A500244686 /* Memorize */ = {
 			isa = PBXGroup;
 			children = (
+				162A504F24B7155D0090CDA0 /* Shapes */,
+				162A504E24B715490090CDA0 /* Modifiers */,
+				162A504D24B715070090CDA0 /* Extensions */,
+				162A504C24B714CC0090CDA0 /* Model */,
+				162A504B24B714C40090CDA0 /* ViewModel */,
+				162A504A24B714A00090CDA0 /* View */,
 				16640DC924AF37A500244686 /* AppDelegate.swift */,
 				16640DCB24AF37A500244686 /* SceneDelegate.swift */,
-				16640DCD24AF37A500244686 /* EmojiMemoryGameView.swift */,
-				16622F3D24B463520093CA92 /* Cardify.swift */,
-				16622F3B24B4548E0093CA92 /* Pie.swift */,
-				167EA9A524B2FF13004CE4E7 /* Grid.swift */,
-				167EA9A924B30EE7004CE4E7 /* Array+Identifiable.swift */,
-				167EA9A724B30908004CE4E7 /* GridLayout.swift */,
-				1645CDF124AF65F1001B1185 /* MemoryGame.swift */,
-				167EA9AB24B33146004CE4E7 /* Array+Only.swift */,
-				1645CDF324AF67E1001B1185 /* EmojiMemoryGame.swift */,
 				16640DCF24AF37A600244686 /* Assets.xcassets */,
 				16640DD424AF37A600244686 /* LaunchScreen.storyboard */,
 				16640DD724AF37A600244686 /* Info.plist */,
