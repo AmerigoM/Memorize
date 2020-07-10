@@ -33,7 +33,23 @@ struct EmojiMemoryGameView: View {
                 withAnimation(.easeInOut) {
                     self.viewModel.resetGame()
                 }
-            }, label: {Text("New game")})
+            }, label: {
+                Text("NEW GAME")
+                .fontWeight(.bold)
+                .font(.system(size: 22))
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding()
+                .background(Color.orange)
+                .cornerRadius(40)
+                .foregroundColor(.white)
+                .padding(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 40)
+                        .stroke(Color.orange, lineWidth: 5)
+                )
+            })
+            .padding(.horizontal)
+            Spacer()
         }
     }
 }
